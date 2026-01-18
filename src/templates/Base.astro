@@ -1,0 +1,196 @@
+---
+import { Footer } from '@/partials/Footer';
+import { Navbar } from '@/partials/Navbar';
+import { AppConfig } from '@/utils/AppConfig';
+
+export interface Props {
+  head: {
+    title: string;
+    description: string;
+  };
+}
+
+const {
+  head: { title, description },
+} = Astro.props as Props;
+---
+
+<html lang='ru'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>{title}</title>
+    <meta name='description' content={description} />
+    <meta name='author' content={AppConfig.author} />
+
+    <link rel='alternate' type='application/rss+xml' href={`${import.meta.env.BASE_URL}rss.xml`} />
+    <link rel='icon' type='image/x-icon' href={`${import.meta.env.BASE_URL}favicon.ico`} />
+    <style is:global>
+      :root {
+        --color-bg: #F0DFC7;
+        --color-text: #454545;
+        --color-primary: #E8B00A;
+        --color-secondary: #C25326;
+        --color-surface: #F7E9D2;
+        --color-muted: rgba(69, 69, 69, 0.75);
+        --color-muted-strong: rgba(69, 69, 69, 0.9);
+      }
+
+      body {
+        background-color: var(--color-bg);
+        color: var(--color-text);
+      }
+
+      a {
+        color: var(--color-secondary);
+      }
+
+      a:hover {
+        color: var(--color-primary);
+      }
+
+      .bg-slate-900,
+      .bg-slate-800 {
+        background-color: var(--color-surface) !important;
+      }
+
+      .text-gray-100,
+      .text-gray-200 {
+        color: var(--color-text) !important;
+      }
+
+      .text-gray-300 {
+        color: var(--color-muted-strong) !important;
+      }
+
+      .text-gray-400 {
+        color: var(--color-muted) !important;
+      }
+
+      .border-gray-600,
+      .border-gray-300 {
+        border-color: var(--color-text) !important;
+      }
+
+      .text-cyan-400,
+      .hover\:text-cyan-400:hover,
+      .hover\:text-white:hover {
+        color: var(--color-secondary) !important;
+      }
+
+      .project-card img {
+        object-fit: contain !important;
+        background-color: #f7e9d2;
+      }
+
+      .bg-gradient-to-br {
+        background-image: none !important;
+        background-color: transparent !important;
+      }
+
+      .bg-clip-text {
+        background-clip: border-box !important;
+      }
+
+      .text-transparent {
+        color: var(--color-primary) !important;
+      }
+
+      .stroke-cyan-600 {
+        stroke: var(--color-secondary) !important;
+      }
+
+      .from-sky-500 {
+        --tw-gradient-from: var(--color-primary) !important;
+        --tw-gradient-to: rgba(232, 176, 10, 0) !important;
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+      }
+
+      .to-cyan-400 {
+        --tw-gradient-to: var(--color-secondary) !important;
+      }
+
+      .hover\:from-sky-700:hover {
+        --tw-gradient-from: var(--color-secondary) !important;
+        --tw-gradient-to: rgba(194, 83, 38, 0) !important;
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+      }
+
+      .hover\:to-cyan-600:hover {
+        --tw-gradient-to: var(--color-primary) !important;
+      }
+
+      .focus-within\:ring-cyan-600:focus-within,
+      .hover\:ring-cyan-600:hover {
+        --tw-ring-color: var(--color-secondary) !important;
+      }
+
+      .focus\:ring-cyan-600\/50:focus {
+        --tw-ring-color: rgba(194, 83, 38, 0.5) !important;
+      }
+
+      .bg-cyan-400 {
+        background-color: var(--color-primary) !important;
+      }
+
+      .text-cyan-900 {
+        color: var(--color-text) !important;
+      }
+
+      .bg-fuchsia-400,
+      .bg-lime-400,
+      .bg-sky-400,
+      .bg-rose-400,
+      .bg-violet-400,
+      .bg-emerald-400,
+      .bg-yellow-400,
+      .bg-indigo-400,
+      .bg-amber-400,
+      .bg-orange-400,
+      .bg-red-400,
+      .bg-green-400,
+      .bg-teal-400,
+      .bg-blue-400,
+      .bg-purple-400,
+      .bg-pink-400,
+      .bg-slate-400,
+      .bg-gray-400,
+      .bg-zinc-400,
+      .bg-neutral-400,
+      .bg-stone-400 {
+        background-color: var(--color-primary) !important;
+      }
+
+      .text-fuchsia-900,
+      .text-lime-900,
+      .text-sky-900,
+      .text-rose-900,
+      .text-violet-900,
+      .text-emerald-900,
+      .text-yellow-900,
+      .text-indigo-900,
+      .text-amber-900,
+      .text-orange-900,
+      .text-red-900,
+      .text-green-900,
+      .text-teal-900,
+      .text-blue-900,
+      .text-purple-900,
+      .text-pink-900,
+      .text-slate-900,
+      .text-gray-900,
+      .text-zinc-900,
+      .text-neutral-900,
+      .text-stone-900 {
+        color: var(--color-text) !important;
+      }
+    </style>
+  </head>
+  <body class='bg-[#F0DFC7] text-[#454545]'>
+    <Navbar />
+
+    <slot></slot>
+
+    <Footer />
+  </body>
+</html>

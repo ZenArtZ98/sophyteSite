@@ -1,0 +1,18 @@
+---
+import { Hero } from '@/partials/Hero';
+import { ProjectList } from '@/partials/ProjectList';
+import { Screenshots } from '@/partials/Screenshots';
+import { Support } from '@/partials/Support';
+import Base from '@/templates/Base.astro';
+import { AppConfig } from '@/utils/AppConfig';
+
+const { title } = AppConfig;
+const { description } = AppConfig;
+---
+
+<Base head={{ title, description }}>
+  <Hero />
+  <ProjectList />
+  <Screenshots client:load />
+  <Support />
+</Base>
